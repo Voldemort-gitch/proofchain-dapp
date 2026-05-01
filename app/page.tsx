@@ -126,9 +126,9 @@ export default function Home() {
       <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="text-center mb-20 relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-8 shadow-[0_0_20px_rgba(59,130,246,0.1)]">
           <Zap className="h-3 w-3 fill-current" />
-          Full-Stack Protocol Console
+          Decentralized Verification Engine
         </div>
-        <h1 className="text-7xl font-black tracking-tighter text-white mb-6 leading-none sm:text-8xl">DECISION <br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-500 to-emerald-400 italic font-black">PROTOCOLS</span></h1>
+        <h1 className="text-7xl font-black tracking-tighter text-white mb-6 leading-none sm:text-8xl">PROOFCHAIN <br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-500 to-emerald-400 italic font-black">PROTOCOL</span></h1>
         <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium tracking-tight">The ultimate ecosystem for decentralized governance, API automation, and cryptographic issuance.</p>
       </motion.div>
 
