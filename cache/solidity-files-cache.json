@@ -1,0 +1,41 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\abico\\.gemini\\antigravity\\brain\\a737eace-061c-4270-a65b-42499ad7ed35\\proofchain-dapp\\contracts\\ProofChain.sol": {
+      "lastModificationDate": 1777494698752,
+      "contentHash": "aacf373cbdc9602302ae5fb03455b0b6",
+      "sourceName": "contracts/ProofChain.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.28"
+      ],
+      "artifacts": [
+        "ProofChain"
+      ]
+    }
+  }
+}
