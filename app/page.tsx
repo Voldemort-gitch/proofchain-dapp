@@ -302,8 +302,6 @@ export default function Home() {
           </section>
 
         </div>
-      </div>
-
       {/* Diploma Modal */}
       <AnimatePresence>{showDiploma && (<DigitalDiploma data={showDiploma} onClose={() => setShowDiploma(null)} />)}</AnimatePresence>
     </main>
