@@ -132,14 +132,22 @@ export default function Home() {
         <p className="text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto font-medium tracking-tight px-4">The ultimate ecosystem for decentralized governance, API automation, and cryptographic issuance.</p>
       </motion.div>
 
-      {!isConnected ? (
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass-card p-12 rounded-[3rem] text-center max-w-lg mx-auto border-beam shadow-2xl"><h2 className="text-3xl font-black text-white mb-4 italic tracking-tighter uppercase">Connection Required</h2><p className="text-slate-500 mb-0 font-medium">Link your secure enclave to access the ProofChain dashboard.</p></motion.div>
-      ) : (
-        <div className="flex flex-col gap-32 w-full max-w-7xl relative z-10">
-          
-          {/* Dashboard Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <TiltCard isLocked={!isOwner} className={isOwner ? "border-beam" : ""}>
+      {/* Main Dashboard Section */}
+      <div className="flex flex-col gap-32 w-full max-w-7xl relative z-10">
+        
+        {/* Connection Notice for Guests */}
+        {!isConnected && (
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="bg-blue-500/10 border border-blue-500/20 p-4 rounded-2xl text-center">
+             <p className="text-[10px] font-black text-blue-400 uppercase tracking-widest flex items-center justify-center gap-2">
+                <ShieldAlert className="h-3 w-3" /> 
+                Public Read-Only Mode: Connect wallet to access Admin Issuance
+             </p>
+          </motion.div>
+        )}
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Issue Section - Locked for Guests or Non-Owners */}
+          <TiltCard isLocked={!isConnected || !isOwner} className={isOwner && isConnected ? "border-beam" : ""}>
                <div className="bg-gradient-to-br from-blue-600 to-indigo-700 p-5 rounded-[1.5rem] w-fit mb-10 shadow-xl shadow-blue-500/20"><PlusCircle className="h-9 w-9 text-white" /></div>
                <h2 className="text-4xl font-black text-white mb-2 italic tracking-tighter uppercase">Mint Record</h2>
                <p className="text-slate-500 mb-10 font-medium tracking-tight">Secure a credential on the immutable ledger.</p>
@@ -294,7 +302,7 @@ export default function Home() {
           </section>
 
         </div>
-      )}
+      </div>
 
       {/* Diploma Modal */}
       <AnimatePresence>{showDiploma && (<DigitalDiploma data={showDiploma} onClose={() => setShowDiploma(null)} />)}</AnimatePresence>
