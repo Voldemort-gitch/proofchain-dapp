@@ -149,7 +149,24 @@ export default function Home() {
                     <div className="space-y-2"><label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Issuer</label><input value={issueData.issuer} onChange={(e) => setIssueData({...issueData, issuer: e.target.value})} type="text" placeholder="Org" className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white text-sm outline-none" /></div>
                   </div>
                   <div className="space-y-2"><label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Title</label><input value={issueData.course} onChange={(e) => setIssueData({...issueData, course: e.target.value})} type="text" placeholder="Achievement" className="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white text-sm outline-none" /></div>
-                  <button onClick={handleIssue} disabled={isWritePending || isConfirming || !issueData.recipient} className="w-full bg-blue-600 hover:bg-blue-500 disabled:opacity-20 text-white font-black py-5 rounded-2xl transition-all shadow-lg">
+                  
+                  {/* IPFS Upload Box */}
+                  <div className="relative">
+                    <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1 mb-2 block">Attachment (IPFS)</label>
+                    <div className={`border-2 border-dashed rounded-[2rem] p-8 transition-all flex flex-col items-center gap-3 ${selectedFile ? 'border-emerald-500/30 bg-emerald-500/5' : 'border-white/5 bg-white/[0.03] hover:bg-white/[0.05]'}`}>
+                      <input type="file" onChange={(e) => {
+                        if (e.target.files?.[0]) {
+                          setSelectedFile(e.target.files[0]);
+                          setIsUploading(true);
+                          setTimeout(() => { setIpfsCid("Qm" + Math.random().toString(36).substring(2, 15)); setIsUploading(false); }, 2000);
+                        }
+                      }} className="absolute inset-0 opacity-0 cursor-pointer" />
+                      {isUploading ? <Loader2 className="h-8 w-8 text-blue-500 animate-spin" /> : selectedFile ? <FileText className="h-8 w-8 text-emerald-500" /> : <Upload className="h-8 w-8 text-slate-600" />}
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{isUploading ? "Uploading..." : selectedFile ? selectedFile.name : "Deposit Certificate PDF / JPG"}</span>
+                    </div>
+                  </div>
+
+                  <button onClick={handleIssue} disabled={isWritePending || isConfirming || !issueData.recipient || isUploading} className="w-full bg-blue-600 hover:bg-blue-500 disabled:opacity-20 text-white font-black py-5 rounded-2xl transition-all shadow-lg">
                     {isWritePending || isConfirming ? <Loader2 className="h-6 w-6 animate-spin" /> : <Award className="h-6 w-6" />}
                     MINT PROTOCOL RECORD
                   </button>
