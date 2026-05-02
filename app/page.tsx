@@ -36,7 +36,7 @@ function TiltCard({ children, className, isLocked }: { children: React.ReactNode
       onMouseMove={handleMouseMove}
       onMouseLeave={() => { x.set(0); y.set(0); }}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className={`glass-card p-10 rounded-[3rem] relative ${className}`}
+      className={`glass-card p-6 sm:p-10 rounded-[2.5rem] sm:rounded-[3rem] relative ${className}`}
     >
       <div style={{ transform: "translateZ(50px)" }}>{children}</div>
       {isLocked && (
@@ -53,7 +53,7 @@ function TiltCard({ children, className, isLocked }: { children: React.ReactNode
 // --- Stat Counter Component ---
 function StatItem({ icon: Icon, label, value, subtext, color }: any) {
   return (
-    <div className="flex flex-col gap-4 p-8 rounded-[2rem] bg-white/[0.02] border border-white/[0.03] hover:border-white/10 transition-all">
+    <div className="flex flex-col gap-4 p-6 sm:p-8 rounded-[2rem] bg-white/[0.02] border border-white/[0.03] hover:border-white/10 transition-all">
       <div className={`p-3 rounded-xl w-fit ${color} shadow-lg`}><Icon className="h-6 w-6 text-white" /></div>
       <div>
         <div className="text-4xl font-black text-white tracking-tighter mb-1">{value}</div>
@@ -128,8 +128,8 @@ export default function Home() {
           <Zap className="h-3 w-3 fill-current" />
           Decentralized Verification Engine
         </div>
-        <h1 className="text-7xl font-black tracking-tighter text-white mb-6 leading-none sm:text-8xl">PROOFCHAIN <br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-500 to-emerald-400 italic font-black">PROTOCOL</span></h1>
-        <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium tracking-tight">The ultimate ecosystem for decentralized governance, API automation, and cryptographic issuance.</p>
+        <h1 className="text-5xl font-black tracking-tighter text-white mb-6 leading-none sm:text-7xl lg:text-8xl">PROOFCHAIN <br /><span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-500 to-emerald-400 italic font-black">PROTOCOL</span></h1>
+        <p className="text-lg sm:text-xl text-slate-500 max-w-2xl mx-auto font-medium tracking-tight px-4">The ultimate ecosystem for decentralized governance, API automation, and cryptographic issuance.</p>
       </motion.div>
 
       {!isConnected ? (
@@ -237,7 +237,7 @@ export default function Home() {
 
           {/* API Console Section */}
           <section id="api" className="py-20 border-t border-white/[0.03]">
-             <div className="glass-card p-12 rounded-[4rem] border-white/[0.05] bg-gradient-to-tr from-emerald-600/[0.02] to-transparent overflow-hidden relative">
+             <div className="glass-card p-8 sm:p-12 rounded-[3rem] sm:rounded-[4rem] border-white/[0.05] bg-gradient-to-tr from-emerald-600/[0.02] to-transparent overflow-hidden relative">
                 <div className="absolute -top-24 -right-24 h-64 w-64 bg-emerald-500/5 blur-[100px] rounded-full" />
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
                    <div className="flex flex-col gap-8">
